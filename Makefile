@@ -48,3 +48,7 @@ re:			fclean all
 .PHONY:		all clean fclean re
 
 #for i in {0..255}; do printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"; done
+
+#for i in {0..255}; do printf "\x1b[48;5;${i}m colour${i} \x1b[0m\n"; done
+
+#for i in {0..255}; do printf "\x1b[5;38;5;${i}m blinking colour${i} \x1b[0m\n"; done

@@ -17,31 +17,31 @@ RESET		=	\033[0m
 
 $(OBJ_DIR)/%.o:	%.c
 				@$(CC) $(CFLAGS) -c $< -o $@
-				@echo "$$(YELLOW)Compiling $<...$$(RESET)"
+				@echo "$(YELLOW)Compiling $<...$(RESET)"
 
 all:		$(NAME)
 
 $(NAME):	$(LIBFT) $(OBJ_DIR) $(OBJS)
-			@echo "$$(YELLOW)Creating $(LIBRARY) archive...$$(RESET)"
+			@echo "$(YELLOW)Creating $(LIBRARY) archive...$(RESET)"
 			@$(AR) $(LIBRARY) $(OBJS) >/dev/null 2>&1
-			@echo "$$(YELLOW)Linking $(NAME) executable...$$(RESET)"
+			@echo "$(YELLOW)Linking $(NAME) executable...$(RESET)"
 			@$(CC) -o $(NAME) $(LIBRARY)
-			@echo "$$(GREEN)$(NAME) is ready.$$(RESET)"
+			@echo "$(GREEN)$(NAME) is ready.$(RESET)"
 
 $(OBJ_DIR):
 			@mkdir -p $(OBJ_DIR)
-			@echo "$$(YELLOW)Creating the objects directory...$$(RESET)"
+			@echo "$(YELLOW)Creating the objects directory...$(RESET)"
 
 clean:
 			@$(RM) $(OBJ_DIR) >/dev/null 2>&1
 			@$(RM) *.0 >/dev/null 2>&1
-			@echo "$$(YELLOW)Cleaning all .o files.$$(RESET)"
+			@echo "$(YELLOW)Cleaning all .o files.$(RESET)"
 
 fclean:		clean
 			@$(RM) $(LIBRARY) >/dev/null 2>&1
 			@$(RM) $(NAME) >/dev/null 2>&1
 			@$(RM) *.a >/dev/null 2>&1
-			@echo "$$(YELLOW)Cleaning all .a files.$$(RESET)"
+			@echo "$(YELLOW)Cleaning all .a files.$(RESET)"
 
 re:			fclean all
 

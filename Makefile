@@ -11,8 +11,8 @@ SRCS		=	philosophers.c
 OBJ_DIR		=	obj
 OBJS		=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
 
-GREEN		=	\e[0;118m
-YELLOW		=	\e[0;190m
+GREEN		=	\e[0;10m
+YELLOW		=	\e[0;184m
 RESET		=	\033[0m
 
 $(OBJ_DIR)/%.o:	%.c
@@ -46,3 +46,5 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+#for i in {0..255}; do printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"; done

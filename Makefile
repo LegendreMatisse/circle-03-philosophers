@@ -11,8 +11,8 @@ SRCS		=	philosophers.c
 OBJ_DIR		=	obj
 OBJS		=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
 
-GREEN		=	\e[0;46m
-YELLOW		=	\e[0;226m
+GREEN		=	\e[0;118m
+YELLOW		=	\e[0;190m
 RESET		=	\033[0m
 
 $(OBJ_DIR)/%.o:	%.c

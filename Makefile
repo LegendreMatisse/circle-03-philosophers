@@ -11,28 +11,8 @@ SRCS		=	philosophers.c
 OBJ_DIR		=	obj
 OBJS		=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
 
-#RAND		=	$(shell shuf -i 100-231 -n 1)
-#RAND2		=	$(shell shuf -i 100-105 -n 1)
-
-#GREEN		=	\e[$(call RAND2)m\e[K\e[1;4;6;38:5:$(call RAND)m
-#YELLOW		=	\e[$(call RAND2)m\e[K\e[1;4;6;38:5:$(call RAND)m
-#RESET		=	\033[0m
-
-#GREEN		=	\e[0;32m
-#YELLOW		=	\e[0;33m
-#RESET		=	\033[0m
-
-define COLOR
-	\e[$(1)m\e[K\e[1;4;6;38:5:$(2)m
-endef
-
-define PRINT_COLOR_LINE
-	$(shell echo -e "$(call COLOR,$(1))Color code: $(1)$(RESET)")
-endef
-
-RAND		=	$(shell shuf -i 100-231 -n 1)
-RAND2		=	$(shell shuf -i 100-105 -n 1)
-
+GREEN		=	\e[0;32m
+YELLOW		=	\e[0;33m
 RESET		=	\033[0m
 
 print-colors:
@@ -70,4 +50,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re print-colors
+.PHONY:		all clean fclean re

@@ -15,11 +15,6 @@ GREEN		=	\e[0;46m
 YELLOW		=	\e[0;226m
 RESET		=	\033[0m
 
-print-colors:
-		@for code in $$(seq 100 231); do \
-			$(call PRINT_COLOR_LINE,$$code); \
-		done
-
 $(OBJ_DIR)/%.o:	%.c
 				@$(CC) $(CFLAGS) -c $< -o $@
 				@echo "$(YELLOW)Compiling $<...$(RESET)"

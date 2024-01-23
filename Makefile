@@ -27,7 +27,7 @@ define COLOR
 endef
 
 define PRINT_COLOR_LINE
-	@echo "$(call COLOR,$(1))Color code: $(1)$(RESET)"
+	@echo -e "$(call COLOR,$(1))Color code: $(1)$(RESET)"
 endef
 
 RAND		=	$(shell shuf -i 100-231 -n 1)

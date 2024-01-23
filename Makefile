@@ -36,7 +36,7 @@ RAND2		=	$(shell shuf -i 100-105 -n 1)
 RESET		=	\033[0m
 
 print-colors:
-		@for code in $$(seq 0 231); do \
+		@for code in $$(seq 100 231); do \
 			$(call PRINT_COLOR_LINE,$$code); \
 		done
 

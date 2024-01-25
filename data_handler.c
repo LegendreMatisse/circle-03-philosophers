@@ -31,8 +31,6 @@ void	arg_validation(t_data *data, char **argv)
 void	init_data(t_data *data)
 {
 	data->end = false;
-	data->philos = malloc(sizeof(t_philo) * data->nb_philo);
-	if (!data->philos)
-		exit_w_msg("Error: Malloc failed.");
+	data->philos = catch_malloc_error(data->nb_philo);
 	data
 }

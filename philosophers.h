@@ -17,6 +17,7 @@
 #include <stdbool.h>
 #include <sys/time.h>
 #include <limits.h>
+#include <errno.h>
 
 typedef struct s_data	t_data;
 
@@ -50,6 +51,17 @@ struct s_data
 	t_fork		*forks;
 	t_philo		*philos;
 }
+
+typedef enum e_mutex_code
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETACH,
+}			t_mutex_code;
 
 /*utils*/
 void	exit_w_msg(const char *str);

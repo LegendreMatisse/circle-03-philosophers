@@ -19,6 +19,17 @@
 #include <limits.h>
 #include <errno.h>
 
+typedef enum e_mutex_code
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETACH,
+}			t_mutex_code;
+
 typedef struct s_data	t_data;
 
 typedef struct s_fork
@@ -51,17 +62,6 @@ struct s_data
 	t_fork		*forks;
 	t_philo		*philos;
 }
-
-typedef enum e_mutex_code
-{
-	LOCK,
-	UNLOCK,
-	INIT,
-	DESTROY,
-	CREATE,
-	JOIN,
-	DETACH,
-}			t_mutex_code;
 
 /*utils*/
 void	exit_w_msg(const char *str);

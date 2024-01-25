@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                     +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:53 by mlegendr           #+#    #+#            */
-/*   Updated: 2024/01/25 18:08:57 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/25 20:45:58 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,4 @@ void	handle_mutex_code(pthread_mutex_t *mutex, t_mutex_code code);
 /*thread management*/
 void	catch_thread_error(int status, t_mutex_code code);
 void	handle_thread_code(pthread_t *thread, void *(*routine)(void *),
-	 	void *data, t_mutex_code code);
+			void *data, t_mutex_code code);

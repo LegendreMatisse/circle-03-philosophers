@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mutex_management.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 20:42:39 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/01/25 20:43:12 by matisse          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 void	catch_mutex_error(int status, t_mutex_code code)
@@ -16,7 +28,6 @@ void	catch_mutex_error(int status, t_mutex_code code)
 		exit_w_msg("Error: No memory available.");
 	else if (EBUSY == status)
 		exit_w_msg("Error: Mutex is locked.");
-
 }
 
 void	handle_mutex_code(pthread_mutex_t *mutex, t_mutex_code code)

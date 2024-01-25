@@ -50,3 +50,13 @@ struct s_data
 	t_fork		*forks;
 	t_philo		*philos;
 }
+
+/*utils*/
+void    exit_w_msg(const char *str);
+long	ft_atol(const char *str);
+
+/*validation*/
+void	arg_validation(t_data *data, char **argv);
+
+/*error catchers*/
+void	*catch_malloc_error(size_t size);

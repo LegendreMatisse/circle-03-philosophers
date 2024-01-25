@@ -10,9 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "philosophers.h"
 
-int	main()
+int	main(int argc, char **argv)
 {
+	t_data	data;
+
+	if (argc == 5 || argc == 6)
+	{
+		arg_validation(&data, argv);
+		init_data(&data);
+		dinnerparty(&data);
+		clean_data(&data);
+	}
+	else
+	{
+		exit_w_msg("Error: Wrong number of arguments.");
+	}
 	return 0;
 }

@@ -78,6 +78,6 @@ void	catch_mutex_error(int status, t_mutex_code code);
 void	handle_mutex_code(pthread_mutex_t *mutex, t_mutex_code code);
 
 /*thread management*/
-void	catch_thread_error(int status, t_mutex_code code)
+void	catch_thread_error(int status, t_mutex_code code);
 void	handle_thread_code(pthread_t *thread, void *(*routine)(void *),
 	 	void *data, t_mutex_code code);

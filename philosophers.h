@@ -61,7 +61,7 @@ struct s_data
 	bool		end;
 	t_fork		*forks;
 	t_philo		*philos;
-}
+};
 
 /*utils*/
 void	exit_w_msg(const char *str);

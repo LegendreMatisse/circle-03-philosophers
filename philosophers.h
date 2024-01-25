@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                     +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:53 by mlegendr           #+#    #+#            */
-/*   Updated: 2024/01/23 20:36:22 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:08:57 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_fork
 	int				nb_fork;
 }				t_fork;
 
-typedef struct s_philo;
+typedef struct s_philo
 {
 	int			nb_philo;
 	long		nb_meals;
@@ -52,7 +52,7 @@ struct s_data
 }
 
 /*utils*/
-void    exit_w_msg(const char *str);
+void	exit_w_msg(const char *str);
 long	ft_atol(const char *str);
 
 /*validation*/

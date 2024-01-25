@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:18 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/01/23 20:35:46 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:05:29 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	main(int argc, char **argv)
 	{
 		exit_w_msg("Error: Wrong number of arguments.");
 	}
-	return 0;
+	return (0);
 }

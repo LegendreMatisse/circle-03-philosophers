@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data_handler.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 18:02:48 by mlegendr          #+#    #+#             */
+/*   Updated: 2024/01/25 18:05:04 by matisse          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 void	arg_validation(t_data *data, char **argv)
 {
 	data->nb_philo = ft_atol(argv[1]);
 	data->time_to_die = ft_atol(argv[2] * 1000);
-	data->time_to_eat = ft_atol(argv[3]	* 1000);
+	data->time_to_eat = ft_atol(argv[3] * 1000);
 	data->time_to_sleep = ft_atol(argv[4] * 1000);
 	if (data->time_to_die < 60000
 		|| data->time_to_eat < 60000

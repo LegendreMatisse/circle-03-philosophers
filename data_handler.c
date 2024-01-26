@@ -30,7 +30,30 @@ void	arg_validation(t_data *data, char **argv)
 
 void	init_data(t_data *data)
 {
+	int	i;
+
+	i = -1;
 	data->end = false;
-	data->philos = catch_malloc_error(data->nb_philo);
-	data
+	data->philos = catch_malloc_error(sizeof(t_philo) * data->nb_philo);
+	data->forks = catch_malloc_error(sizeof(t_fork) * data->nb_philo);
+	while (++i < data->nb_philo)
+	{
+		handle_mutex_code(&data->forks[i].mutex, INIT);
+		data->forks[i].nb_fork = i;
+	}
+	init_philos(data);
+}
+
+void	init_philos(t_data *data)
+{
+	int	i;
+	t_philo	*philo;
+
+	i = -1;
+	while (++i < table->nb_philo)
+	{
+		philo = table->philos + i;
+		philo->nb_philo = i + 1;
+		philo->nb_meals = 0;
+	}
 }

@@ -55,5 +55,21 @@ void	init_philos(t_data *data)
 		philo = table->philos + i;
 		philo->nb_philo = i + 1;
 		philo->nb_meals = 0;
+		philo->data = data;
+		give_fork(philo, data->forks, i);
+	}
+}
+
+void	give_fork(t_philo *philo, t_fork *forks, int i)
+{
+	int	nb_philo;
+
+	nb_philo = philo->table->nb_philo;
+	philo->s_fork = &forks[i];
+	philo->f_fork = &forks[(i + 1) % nb_philo];
+	if (philo->nb_philo % 2 == 0)
+	{
+		philo->f_fork = &forks[i];
+		philo->s_fork = &forks[(i + 1) % nb_philo];
 	}
 }

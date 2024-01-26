@@ -40,14 +40,14 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-	int			nb_philo;
-	long		nb_meals;
-	bool		all_meals;
-	long		last_meal;
-	t_fork		*l_fork;
-	t_fork		*r_fork;
-	pthread_t	*nb_thread;
-	t_data		*data;
+	int			nb_philo; //id
+	long		nb_meals; //meals_counter
+	bool		all_meals; //full
+	long		last_meal; //last_meal_time
+	t_fork		*f_fork; //first_fork
+	t_fork		*s_fork; //second_fork
+	pthread_t	*nb_thread; //thread_id
+	t_data		*data; //table
 }				t_philo;
 
 struct s_data
@@ -81,3 +81,8 @@ void	handle_mutex_code(pthread_mutex_t *mutex, t_mutex_code code);
 void	catch_thread_error(int status, t_mutex_code code);
 void	handle_thread_code(pthread_t *thread, void *(*routine)(void *),
 			void *data, t_mutex_code code);
+
+/*init*/
+void	give_fork(t_philo *philo, t_fork *forks, int i);
+void	init_philos(t_data *data);
+void	init_data(t_data *data);

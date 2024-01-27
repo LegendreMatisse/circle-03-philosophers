@@ -35,6 +35,7 @@ void	init_data(t_data *data)
 	i = -1;
 	data->end = false;
 	data->threads_ready = false;
+	data->nb_running_threads = 0;
 	handle_mutex_code(&data->data_mutex, INIT);
 	handle_mutex_code(&data->write_mutex, INIT);
 	data->philos = catch_malloc_error(sizeof(t_philo) * data->nb_philo);

@@ -10,7 +10,7 @@ SRCS		=	philosophers.c data_handler.c utils.c \
 				malloc_management.c mutex_management.c \
 				thread_management.c dinnerparty.c \
 				write_status.c variable_handler.c \
-				simultaneous.c
+				simultaneous.c dinner_watch.c
 
 OBJ_DIR		=	obj
 OBJS		=	$(SRCS:%.c=$(OBJ_DIR)/%.o)

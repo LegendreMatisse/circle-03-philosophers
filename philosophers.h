@@ -78,8 +78,10 @@ struct s_data
 	long			start_time;
 	bool			end;
 	bool			threads_ready;
+	long			nb_running_threads;
 	pthread_mutex_t	data_mutex;
 	pthread_mutex_t	write_mutex;
+	pthread_t		monitor;
 	t_fork			*forks;
 	t_philo			*philos;
 };
@@ -119,6 +121,8 @@ bool	sim_done(t_data *data);
 
 /*multithreading*/
 void	create_all_threads(t_data *data);
+bool	running_thread(pthread_mutex_t *mutex, long *threads, long nb_philo);
+void	increase_long(pthread_mutex_t *mutex, long *value);
 
 /*write functions*/
 void	write_status(t_status status, t_philo *philo);
@@ -128,3 +132,8 @@ void	dinnerparty(t_data *data);
 void	*dinner_sim(void *data);
 void	philo_eat(t_philo *philo);
 void	philo_think(t_philo *philo);
+void	*lone_dinner(void *data);
+
+/*monitor*/
+void	*monitor_dinner(void *data);
+bool	philo_died(t_philo *philo);

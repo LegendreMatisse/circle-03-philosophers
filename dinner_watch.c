@@ -29,7 +29,7 @@ void	*monitor_dinner(void *data)
 			if (philo_died(d->philos + i))
 			{
 				set_bool(&d->data_mutex, &d->end, true);
-				//write_status(DIED, d->philos + i);
+				write_status(DIED, d->philos + i);
 			}
 		}
 	}

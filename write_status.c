@@ -28,7 +28,7 @@ void	write_status(t_status status, t_philo *philo)
 		printf("%-6ld %d is sleeping\n", passed, philo->nb_philo);
 	else if (status == THINKING && !sim_done(philo->data))
 		printf("%-6ld %d is thinking\n", passed, philo->nb_philo);
-	else if (status == DIED && !sim_done(philo->data))
+	else if (status == DIED)
 		printf("%-6ld %d died\n", passed, philo->nb_philo);
 	handle_mutex_code(&philo->data->write_mutex, UNLOCK);
 }

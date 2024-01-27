@@ -56,7 +56,7 @@ void philo_dead(t_philo *philo)
 {
 	if (philo_died(philo))
 	{
-		set_bool(&philo->philo_mutex, &philo->all_meals, true);
+		//set_bool(&philo->philo_mutex, &philo->all_meals, true);
 		set_bool(&philo->data->data_mutex, &philo->data->end, true);
 	}
 }

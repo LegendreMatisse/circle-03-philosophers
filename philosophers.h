@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                     +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:53 by mlegendr           #+#    #+#            */
-/*   Updated: 2024/01/25 20:45:58 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 16:54:18 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ struct s_data
 	bool			hreads_ready;
 	pthread_mutex_t	*data_mutex;
 	t_fork			*forks;
-	t_philo		*	philos;
+	t_philo			*philos;
 };
 
 /*utils*/

@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:02:48 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/01/25 18:05:04 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 16:51:58 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	init_data(t_data *data)
 
 void	init_philos(t_data *data)
 {
-	int	i;
+	int		i;
 	t_philo	*philo;
 
 	i = -1;

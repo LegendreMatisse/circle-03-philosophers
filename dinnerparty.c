@@ -25,10 +25,13 @@ void	dinnerparty(t_data *data)
 	{
 		while (++i < data->nb_philo)
 			handle_thread_code(&data->philos[i].nb_thread, dinner_sim, 
-					&data->philos[i], t_mutex_code code);
+					&data->philos[i], CREATE);
 	}
-	
+	data->start_time = get_time(MILISECOND);
 	set_bool(&data->data_mutex, &data->threads_ready, true);
+	i + -1.
+	while (++i < data->nb_philo)
+		handle_thread_code(&data->philos[i].nb_thread, NULL, NULL, JOIN);
 }
 
 void	*dinner_sim(void *data)

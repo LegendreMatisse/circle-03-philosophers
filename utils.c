@@ -42,4 +42,19 @@ long	ft_atol(const char *str)
 	return (nb);
 }
 
+long	get_time(t_time_code code)
+{
+	struct timeval	time;
 
+	if (gettimeofday(&time, NULL))
+		exit_w_msg("Error: gettimeofday failed.");
+	if (code == SECOND)
+		return (time.tv_sec + time.tv_usec / 1000000);
+	else if (code == MILLISECOND)
+		return (time.tv_sec * 1000 + time.tv_usec / 1000);
+	else if (code == MICROSECOND)
+		return (time.tv_sec * 1000000 + time.tv_usec);
+	else
+		exit_w_msg("Error: Wrong time code.");
+	return (123123123);
+}

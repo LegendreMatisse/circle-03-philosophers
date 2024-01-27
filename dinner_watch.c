@@ -58,8 +58,9 @@ void philo_dead(t_philo *philo)
 
 	i = -1;
 	while (++i < philo->data->nb_philo)
-		handle_thread_code(&data->philos[i].nb_thread, NULL, NULL, JOIN);
-	handle_thread_code(&data->monitor, NULL, NULL, JOIN);
+		handle_thread_code(&philo->data->philos[i].nb_thread, NULL, NULL,
+			JOIN);
+	handle_thread_code(&philo->data->monitor, NULL, NULL, JOIN);
 	printf("%ld\n", philo->data->start_time);
 	if (philo_died(philo))
 		set_bool(&philo->data->data_mutex, &philo->data->end, true);

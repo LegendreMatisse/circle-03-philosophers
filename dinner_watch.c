@@ -29,7 +29,7 @@ void	*monitor_dinner(void *data)
 			if (philo_died(d->philos + i))
 			{
 				set_bool(&d->data_mutex, &d->end, true);
-				write_status(DIED, d->philos + i);
+				//write_status(DIED, d->philos + i);
 			}
 		}
 	}
@@ -50,4 +50,14 @@ bool	philo_died(t_philo *philo)
 		return (true);
 	else
 		return (false);
+}
+
+void philo_dead(t_philo *philo)
+{
+	if (philo_died(philo))
+	{
+		set_bool(&philo->philo_mutex, &philo->all_meals, true);
+		set_bool(&philo->data->data_mutex, &philo->data->end, true);
+		write_status(DIED, philo);
+	}
 }

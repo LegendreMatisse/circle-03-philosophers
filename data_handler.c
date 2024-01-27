@@ -34,6 +34,8 @@ void	init_data(t_data *data)
 
 	i = -1;
 	data->end = false;
+	data->threads_ready = false;
+	handle_mutex_code(&data->data_mutex, INIT);
 	data->philos = catch_malloc_error(sizeof(t_philo) * data->nb_philo);
 	data->forks = catch_malloc_error(sizeof(t_fork) * data->nb_philo);
 	while (++i < data->nb_philo)

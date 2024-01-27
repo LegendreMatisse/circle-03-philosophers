@@ -41,3 +41,5 @@ long	ft_atol(const char *str)
 	}
 	return (nb);
 }
+
+

@@ -52,15 +52,17 @@ typedef struct s_philo
 
 struct s_data
 {
-	long		nb_philo;
-	long		time_to_die;
-	long		time_to_eat;
-	long		time_to_sleep;
-	long		nb_meals;
-	long		start_time;
-	bool		end;
-	t_fork		*forks;
-	t_philo		*philos;
+	long			nb_philo;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
+	long			nb_meals;
+	long			start_time;
+	bool			end;
+	bool			hreads_ready;
+	pthread_mutex_t	*data_mutex;
+	t_fork			*forks;
+	t_philo		*	philos;
 };
 
 /*utils*/
@@ -86,3 +88,13 @@ void	handle_thread_code(pthread_t *thread, void *(*routine)(void *),
 void	give_fork(t_philo *philo, t_fork *forks, int i);
 void	init_philos(t_data *data);
 void	init_data(t_data *data);
+
+/*variable manipulation*/
+void	set_bool(pthread_mutex_t *mutex, bool *dest, bool value);
+bool	get_bool(pthread_mutex_t *mutex, bool *dest);
+void	set_long(pthread_mutex_t *mutex, long *dest, long value);
+void	get_long(pthread_mutex_t *mutex, long *dest);
+bool	sim_done(t_data *data);
+
+/*multithreading*/
+void	create_all_threads(t_data *data);

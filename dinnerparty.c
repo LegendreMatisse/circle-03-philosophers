@@ -55,7 +55,6 @@ void	*dinner_sim(void *data)
 		write_status(SLEEPING, philo);
 		ft_usleep(philo->data->time_to_sleep, philo->data);
 		philo_think(philo, false);
-		philo_died(philo);
 	}
 	return (NULL);
 }

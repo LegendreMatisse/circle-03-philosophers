@@ -138,5 +138,5 @@ void	*lone_dinner(void *data);
 
 /*monitor*/
 //void	*monitor_dinner(void *data);
-void	*monitor_dinner(t_data *data);
+void	monitor_dinner(t_data *data);
 bool	philo_died(t_philo *philo);

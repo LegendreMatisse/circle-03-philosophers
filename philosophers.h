@@ -122,3 +122,9 @@ void	create_all_threads(t_data *data);
 
 /*write functions*/
 void	write_status(t_status status, t_philo *philo);
+
+/*simulation*/
+void	dinnerparty(t_data *data);
+void	*dinner_sim(void *data);
+void	philo_eat(t_philo *philo);
+void	philo_think(t_philo *philo);

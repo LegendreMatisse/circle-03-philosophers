@@ -62,5 +62,13 @@ void	philo_eat(t_philo *philo)
 	philo->nb_meals++;
 	write_status(EATING, philo);
 	ft_usleep(philo->data->time_to_eat, philo->data);
-	if (philo->data->nb_meals > 0) //WE WERE HERE
+	if (philo->data->nb_meals > 0 && philo->nb_meals == philo->data->nb_meals)
+		set_bool(philo->philo_mutex, &philo->all_meals, true);
+	handle_mutex_code(&philo->f_fork->mutex, UNLOCK);
+	handle_mutex_code(&philo->s_fork->mutex, UNLOCK);
+}
+
+void	philo_think(t_philo *philo)
+{
+	write_status(THINKING, philo);
 }

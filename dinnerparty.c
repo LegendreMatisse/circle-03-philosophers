@@ -34,6 +34,8 @@ void	dinnerparty(t_data *data)
 	i = -1;
 	while (++i < data->nb_philo)
 		handle_thread_code(&data->philos[i].nb_thread, NULL, NULL, JOIN);
+	set_bool(&data->data_mutex, &data->end, true);
+	handle_thread_code(&data->monitor, NULL, NULL, JOIN);
 }
 
 void	*dinner_sim(void *data)
@@ -46,7 +48,7 @@ void	*dinner_sim(void *data)
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
 	while (sim_done(philo->data) == false)
 	{
-		if (philo->all_meals)
+		if (get_bool(&philo->philo_mutex, &philo->all_meals))
 			break ;
 		philo_eat(philo);
 		write_status(SLEEPING, philo);

@@ -45,7 +45,8 @@ void	*dinner_sim(void *data)
 		if (philo->all_meals)
 			break ;
 		philo_eat(philo);
-		philo_sleep(philo);
+		write_status(SLEEPING, philo);
+		ft_usleep(philo->data->time_to_sleep, philo->data);
 		philo_think(philo);
 	}
 	return (NULL);

@@ -37,6 +37,16 @@ typedef enum e_time_code
 	MICROSECOND,
 }			t_time_code;
 
+typedef enum e_status
+{
+	EATING,
+	SLEEPING,
+	THINKING,
+	TFF,
+	TSF,
+	DIED,
+}			t_status;
+
 typedef struct s_data	t_data;
 
 typedef struct s_fork
@@ -68,6 +78,7 @@ struct s_data
 	bool			end;
 	bool			hreads_ready;
 	pthread_mutex_t	*data_mutex;
+	pthread_mutex_t	*write_mutex;
 	t_fork			*forks;
 	t_philo			*philos;
 };
@@ -107,3 +118,6 @@ bool	sim_done(t_data *data);
 
 /*multithreading*/
 void	create_all_threads(t_data *data);
+
+/*write functions*/
+void	write_status(t_status status, t_philo *philo);

@@ -76,6 +76,7 @@ struct s_data
 void	exit_w_msg(const char *str);
 long	ft_atol(const char *str);
 long	get_time(t_time_code code);
+void	ft_usleep(long time, t_data *data);
 
 /*validation*/
 void	arg_validation(t_data *data, char **argv);

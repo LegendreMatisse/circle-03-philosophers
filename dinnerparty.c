@@ -40,5 +40,13 @@ void	*dinner_sim(void *data)
 
 	philo = (t_philo *)data;
 	create_all_threads(philo->data);
+	while (sim_done(philo->data) == false)
+	{
+		if (philo->all_meals)
+			break ;
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
+	}
 	return (NULL);
 }

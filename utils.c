@@ -58,3 +58,24 @@ long	get_time(t_time_code code)
 		exit_w_msg("Error: Wrong time code.");
 	return (123123123);
 }
+
+void	ft_usleep(long time, t_data *data)
+{
+	long	start;
+	long	passed;
+	long	remaining;
+
+	start = get_time(MICROSECOND);
+	while (get_time(MICROSECOND) - start < time)
+	{
+		if (sim_done(data))
+			break ;
+		passed = get_time(MICROSECOND) - start;
+		remaining = time - passed;
+		if (remaining > 100)
+			usleep(remaining / 2);
+		else
+			while (get_time(MICROSECOND) - start < time)
+				;
+	}
+}

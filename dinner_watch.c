@@ -6,7 +6,7 @@
 /*   By: matisse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:01:45 by matisse           #+#    #+#             */
-/*   Updated: 2024/01/27 22:01:50 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 23:50:19 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool	philo_died(t_philo *philo)
 		return (false);
 }
 
-void philo_dead(t_philo *philo)
+void	philo_dead(t_philo *philo)
 {
 	if (philo_died(philo))
 		set_bool(&philo->data->data_mutex, &philo->data->end, true);

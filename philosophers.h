@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                     +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:53 by mlegendr           #+#    #+#            */
-/*   Updated: 2024/01/27 19:50:55 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 23:49:50 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,4 +140,3 @@ void	*lone_dinner(void *data);
 void	*monitor_dinner(void *data);
 bool	philo_died(t_philo *philo);
 void	philo_dead(t_philo *philo);
-

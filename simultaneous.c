@@ -6,7 +6,7 @@
 /*   By: matisse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:53:07 by matisse           #+#    #+#             */
-/*   Updated: 2024/01/27 19:54:08 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 20:41:39 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ bool	running_thread(pthread_mutex_t *mutex, long *threads, long nb_philo)
 void	increase_long(pthread_mutex_t *mutex, long *value)
 {
 	handle_mutex_code(mutex, LOCK);
-	*dest += 1;
+	*value += 1;
 	handle_mutex_code(mutex, UNLOCK);
 }

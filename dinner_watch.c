@@ -6,18 +6,18 @@ void	*monitor_dinner(void *data)
 	t_data	*d;
 
 	d = (t_data *)data;
-	while (!running_thread(&data->data_mutex, &data->nb_running_threads,
-			data->nb_philo))
+	while (!running_thread(&d->data_mutex, &d->nb_running_threads,
+			d->nb_philo))
 		;
 	while (sim_done(d) == false)
 	{
 		i = -1;
-		while (++i < data->nb_philo && sim_done(d) == false)
+		while (++i < d->nb_philo && sim_done(d) == false)
 		{
-			if (philo_died(&data->philos + i))
+			if (philo_died(d->philos + i))
 			{
-				set_bool(&data->data_mutex, &data->end, true);
-				write_status(DEAD, &data->philos + i);
+				set_bool(&d->data_mutex, &d->end, true);
+				write_status(DIED, d->philos + i);
 			}
 		}
 	}

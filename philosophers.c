@@ -39,7 +39,7 @@ void	clean_data(t_data *data)
 	while (++i < data->nb_philo)
 	{
 		philo = data->philos + i;
-		handle_mutex_code(&philo->mutex, DESTROY);
+		handle_mutex_code(&philo->philo_mutex, DESTROY);
 	}
 	handle_mutex_code(&data->write_mutex, DESTROY);
 	handle_mutex_code(&data->data_mutex, DESTROY);

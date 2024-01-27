@@ -75,7 +75,9 @@ void	ft_usleep(long time, t_data *data)
 		if (remaining > 100)
 			usleep(remaining / 2);
 		else
+		{
 			while (get_time(MICROSECOND) - start < time)
 				;
+		}
 	}
 }

@@ -91,6 +91,7 @@ void	exit_w_msg(const char *str);
 long	ft_atol(const char *str);
 long	get_time(t_time_code code);
 void	ft_usleep(long time, t_data *data);
+void	clean_data(t_data *data);
 
 /*validation*/
 void	arg_validation(t_data *data, char **argv);
@@ -131,7 +132,7 @@ void	write_status(t_status status, t_philo *philo);
 void	dinnerparty(t_data *data);
 void	*dinner_sim(void *data);
 void	philo_eat(t_philo *philo);
-void	philo_think(t_philo *philo);
+void	philo_think(t_philo *philo, bool pre);
 void	*lone_dinner(void *data);
 
 /*monitor*/

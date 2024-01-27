@@ -38,3 +38,17 @@ void	increase_long(pthread_mutex_t *mutex, long *value)
 	*value += 1;
 	handle_mutex_code(mutex, UNLOCK);
 }
+
+void desync_philo(t_philo *philo)
+{
+	if (philo->data->nb_philo % 2 == 0)
+	{
+		if (philo->nb_philo % 2 == 0)
+			ft_usleep(30, philo->data);
+	}
+	else
+	{
+		if (philo->nb_philo % 2 == 1)
+			philo_think(philo, true);
+	}
+}

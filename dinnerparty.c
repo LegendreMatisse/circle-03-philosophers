@@ -46,6 +46,7 @@ void	*dinner_sim(void *data)
 	create_all_threads(philo->data);
 	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
+	desync_philo(philo);
 	while (sim_done(philo->data) == false)
 	{
 		if (get_bool(&philo->philo_mutex, &philo->all_meals))
@@ -53,7 +54,7 @@ void	*dinner_sim(void *data)
 		philo_eat(philo);
 		write_status(SLEEPING, philo);
 		ft_usleep(philo->data->time_to_sleep, philo->data);
-		philo_think(philo);
+		philo_think(philo, false);
 	}
 	return (NULL);
 }
@@ -74,9 +75,22 @@ void	philo_eat(t_philo *philo)
 	handle_mutex_code(&philo->s_fork->mutex, UNLOCK);
 }
 
-void	philo_think(t_philo *philo)
+void	philo_think(t_philo *philo, bool pre)
 {
-	write_status(THINKING, philo);
+	long	t_eat;
+	long	t_sleep;
+	long	t_think;
+
+	if (pre == false)
+		write_status(THINKING, philo);
+	if (philo->data->nb_philo % 2 == 0)
+		return ;
+	t_eat = philo->data->time_to_eat;
+	t_sleep = philo->data->time_to_sleep;
+	t_think = t_eat * 2 - t_sleep;
+	if (t_think < 0)
+		t_think = 0;
+	ft_usleep(t_think * 0.5, philo->data);
 }
 
 void	*lone_dinner(void *data)

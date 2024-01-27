@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                     +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:53 by mlegendr           #+#    #+#            */
-/*   Updated: 2024/01/27 16:54:18 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:50:55 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_data	t_data;
 
 typedef struct s_fork
 {
-	pthread_mutex_t	*mutex;
+	pthread_mutex_t	mutex;
 	int				nb_fork;
 }				t_fork;
 
@@ -63,8 +63,8 @@ typedef struct s_philo
 	long			last_meal; //last_meal_time
 	t_fork			*f_fork; //first_fork
 	t_fork			*s_fork; //second_fork
-	pthread_t		*nb_thread; //thread_id
-	pthread_mutex_t	*philo_mutex; //mutex
+	pthread_t		nb_thread; //thread_id
+	pthread_mutex_t	philo_mutex; //mutex
 	t_data			*data; //table
 }				t_philo;
 
@@ -77,9 +77,9 @@ struct s_data
 	long			nb_meals;
 	long			start_time;
 	bool			end;
-	bool			hreads_ready;
-	pthread_mutex_t	*data_mutex;
-	pthread_mutex_t	*write_mutex;
+	bool			threads_ready;
+	pthread_mutex_t	data_mutex;
+	pthread_mutex_t	write_mutex;
 	t_fork			*forks;
 	t_philo			*philos;
 };
@@ -114,7 +114,7 @@ void	init_data(t_data *data);
 void	set_bool(pthread_mutex_t *mutex, bool *dest, bool value);
 bool	get_bool(pthread_mutex_t *mutex, bool *dest);
 void	set_long(pthread_mutex_t *mutex, long *dest, long value);
-void	get_long(pthread_mutex_t *mutex, long *dest);
+long	get_long(pthread_mutex_t *mutex, long *dest);
 bool	sim_done(t_data *data);
 
 /*multithreading*/

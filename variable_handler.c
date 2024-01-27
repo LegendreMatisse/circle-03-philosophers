@@ -6,7 +6,7 @@
 /*   By: matisse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:52:28 by matisse           #+#    #+#             */
-/*   Updated: 2024/01/27 16:52:53 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:52:30 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	set_long(pthread_mutex_t *mutex, long *dest, long value)
 	handle_mutex_code(mutex, UNLOCK);
 }
 
-void	get_long(pthread_mutex_t *mutex, long *dest)
+long	get_long(pthread_mutex_t *mutex, long *dest)
 {
 	long	value;
 
@@ -48,5 +48,5 @@ void	get_long(pthread_mutex_t *mutex, long *dest)
 
 bool	sim_done(t_data *data)
 {
-	return (get_bool(data->data_mutex, &data->end));
+	return (get_bool(&data->data_mutex, &data->end));
 }

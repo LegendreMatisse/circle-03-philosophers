@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:18 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/01/25 18:05:29 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:37:39 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		arg_validation(&data, argv);
 		init_data(&data);
 		dinnerparty(&data);
-		clean_data(&data);
+		//clean_data(&data);
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 20:42:39 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/01/25 20:43:12 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:46:16 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	catch_mutex_error(int status, t_mutex_code code)
 		exit_w_msg("Error: Deadlock detected.");
 	else if (EPERM == status)
 		exit_w_msg("Error: No lock on thread.");
-	else if (ENOMEN == status)
+	else if (ENOMEM == status)
 		exit_w_msg("Error: No memory available.");
 	else if (EBUSY == status)
 		exit_w_msg("Error: Mutex is locked.");

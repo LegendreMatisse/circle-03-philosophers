@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:03:44 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/01/25 18:06:21 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:45:44 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ long	get_time(t_time_code code)
 		exit_w_msg("Error: gettimeofday failed.");
 	if (code == SECOND)
 		return (time.tv_sec + time.tv_usec / 1000000);
-	else if (code == MILLISECOND)
+	else if (code == MILISECOND)
 		return (time.tv_sec * 1000 + time.tv_usec / 1000);
 	else if (code == MICROSECOND)
 		return (time.tv_sec * 1000000 + time.tv_usec);

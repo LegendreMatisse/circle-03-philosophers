@@ -6,7 +6,7 @@
 /*   By: mlegendr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:02:48 by mlegendr          #+#    #+#             */
-/*   Updated: 2024/01/27 16:51:58 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:43:19 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	arg_validation(t_data *data, char **argv)
 {
 	data->nb_philo = ft_atol(argv[1]);
-	data->time_to_die = ft_atol(argv[2] * 1000);
-	data->time_to_eat = ft_atol(argv[3] * 1000);
-	data->time_to_sleep = ft_atol(argv[4] * 1000);
+	data->time_to_die = ft_atol(argv[2]) * 1000;
+	data->time_to_eat = ft_atol(argv[3]) * 1000;
+	data->time_to_sleep = ft_atol(argv[4]) * 1000;
 	if (data->time_to_die < 60000
 		|| data->time_to_eat < 60000
 		|| data->time_to_sleep < 60000)
@@ -53,9 +53,9 @@ void	init_philos(t_data *data)
 	t_philo	*philo;
 
 	i = -1;
-	while (++i < table->nb_philo)
+	while (++i < data->nb_philo)
 	{
-		philo = table->philos + i;
+		philo = data->philos + i;
 		philo->nb_philo = i + 1;
 		philo->nb_meals = 0;
 		philo->data = data;
@@ -68,7 +68,7 @@ void	give_fork(t_philo *philo, t_fork *forks, int i)
 {
 	int	nb_philo;
 
-	nb_philo = philo->table->nb_philo;
+	nb_philo = philo->data->nb_philo;
 	philo->s_fork = &forks[i];
 	philo->f_fork = &forks[(i + 1) % nb_philo];
 	if (philo->nb_philo % 2 == 0)

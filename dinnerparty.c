@@ -51,3 +51,16 @@ void	*dinner_sim(void *data)
 	}
 	return (NULL);
 }
+
+void	philo_eat(t_philo *philo)
+{
+	handle_mutex_code(&philo->f_fork->mutex, LOCK);
+	write_status(TFF, philo);
+	handle_mutex_code(&philo->s_fork->mutex, LOCK);
+	write_status(TSF, philo);
+	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
+	philo->nb_meals++;
+	write_status(EATING, philo);
+	ft_usleep(philo->data->time_to_eat, philo->data);
+	if (philo->data->nb_meals > 0) //WE WERE HERE
+}

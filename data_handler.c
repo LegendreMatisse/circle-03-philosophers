@@ -59,6 +59,7 @@ void	init_philos(t_data *data)
 		philo->nb_philo = i + 1;
 		philo->nb_meals = 0;
 		philo->data = data;
+		handle_mutex_code(&philo->philo_mutex, INIT);
 		give_fork(philo, data->forks, i);
 	}
 }

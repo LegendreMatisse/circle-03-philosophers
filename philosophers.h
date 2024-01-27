@@ -57,14 +57,15 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-	int			nb_philo; //id
-	long		nb_meals; //meals_counter
-	bool		all_meals; //full
-	long		last_meal; //last_meal_time
-	t_fork		*f_fork; //first_fork
-	t_fork		*s_fork; //second_fork
-	pthread_t	*nb_thread; //thread_id
-	t_data		*data; //table
+	int				nb_philo; //id
+	long			nb_meals; //meals_counter
+	bool			all_meals; //full
+	long			last_meal; //last_meal_time
+	t_fork			*f_fork; //first_fork
+	t_fork			*s_fork; //second_fork
+	pthread_t		*nb_thread; //thread_id
+	pthread_mutex_t	*philo_mutex; //mutex
+	t_data			*data; //table
 }				t_philo;
 
 struct s_data

@@ -74,13 +74,18 @@ void	*monitor_philosopher(void *philo)
 void	monitor_dinner(t_data *data)
 {
     int		i;
-    pthread_t	thread;
 
     i = 0;
     while (i < data->nb_philo)
     {
-        pthread_create(&thread, NULL, monitor_philosopher, &data->philos[i]);
-        pthread_detach(thread);
+        handle_thread_code(&data->philos[i].nb_thread, monitor_philosopher, &data->philos[i], CREATE);
+        i++;
+    }
+
+    i = 0;
+    while (i < data->nb_philo)
+    {
+        handle_thread_code(&data->philos[i].nb_thread, NULL, NULL, JOIN);
         i++;
     }
 }

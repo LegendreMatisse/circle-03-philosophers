@@ -87,6 +87,6 @@ void	*lone_dinner(void *data)
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
 	write_status(TFF, philo);
 	while (sim_done(philo->data) == false)
-		usleep(200);
+		ft_usleep(200, philo->data);
 	return (NULL);
 }

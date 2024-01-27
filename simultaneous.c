@@ -6,7 +6,7 @@
 /*   By: matisse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:53:07 by matisse           #+#    #+#             */
-/*   Updated: 2024/01/27 20:41:39 by matisse          ###   ########.fr       */
+/*   Updated: 2024/01/27 22:01:14 by matisse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	running_thread(pthread_mutex_t *mutex, long *threads, long nb_philo)
 		running = true;
 	handle_mutex_code(mutex, UNLOCK);
 	return (running);
-}	
+}
 
 void	increase_long(pthread_mutex_t *mutex, long *value)
 {
@@ -39,7 +39,7 @@ void	increase_long(pthread_mutex_t *mutex, long *value)
 	handle_mutex_code(mutex, UNLOCK);
 }
 
-void desync_philo(t_philo *philo)
+void	desync_philo(t_philo *philo)
 {
 	if (philo->data->nb_philo % 2 == 0)
 	{

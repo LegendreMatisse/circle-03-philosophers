@@ -12,7 +12,7 @@
 
 #include "philosophers.h"
 
-/*void	*monitor_dinner(void *data)
+void	*monitor_dinner(void *data)
 {
 	int		i;
 	t_data	*d;
@@ -35,7 +35,7 @@
 		}
 	}
 	return (NULL);
-}*/
+}
 
 bool	philo_died(t_philo *philo)
 {
@@ -51,41 +51,4 @@ bool	philo_died(t_philo *philo)
 		return (true);
 	else
 		return (false);
-}
-
-void	*monitor_philosopher(void *philo)
-{
-    t_philo	*p;
-    p = (t_philo *)philo;
-    while (true)
-    {
-        if (philo_died(p))
-        {
-            set_bool(&p->data->data_mutex, &p->data->end, true);
-            write_status(DIED, p);
-            sim_done(p->data);
-            break;
-        }
-        usleep(100); // sleep for a short time to reduce CPU usage
-    }
-    return (NULL);
-}
-
-void	monitor_dinner(t_data *data)
-{
-    int		i;
-
-    i = 0;
-    while (i < data->nb_philo)
-    {
-        handle_thread_code(&data->philos[i].nb_thread, monitor_philosopher, &data->philos[i], CREATE);
-        i++;
-    }
-
-    i = 0;
-    while (i < data->nb_philo)
-    {
-        handle_thread_code(&data->philos[i].nb_thread, NULL, NULL, JOIN);
-        i++;
-    }
 }

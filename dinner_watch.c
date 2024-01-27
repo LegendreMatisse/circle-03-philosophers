@@ -30,6 +30,7 @@ void	*monitor_dinner(void *data)
 			{
 				set_bool(&d->data_mutex, &d->end, true);
 				write_status(DIED, d->philos + i);
+				sim_done(d);
 			}
 		}
 	}

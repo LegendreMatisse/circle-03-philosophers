@@ -124,6 +124,7 @@ bool	sim_done(t_data *data);
 void	create_all_threads(t_data *data);
 bool	running_thread(pthread_mutex_t *mutex, long *threads, long nb_philo);
 void	increase_long(pthread_mutex_t *mutex, long *value);
+void	desync_philo(t_philo *philo);
 
 /*write functions*/
 void	write_status(t_status status, t_philo *philo);

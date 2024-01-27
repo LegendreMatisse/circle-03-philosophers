@@ -54,9 +54,9 @@ bool	philo_died(t_philo *philo)
 
 void philo_dead(t_philo *philo)
 {
+	t_data	*data;
+
+	printf("%ld\n", data->start_time);
 	if (philo_died(philo))
-	{
-		//set_bool(&philo->philo_mutex, &philo->all_meals, true);
 		set_bool(&philo->data->data_mutex, &philo->data->end, true);
-	}
 }

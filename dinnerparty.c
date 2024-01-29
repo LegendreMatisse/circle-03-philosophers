@@ -31,7 +31,7 @@ void	dinnerparty(t_data *data)
 	handle_thread_code(&data->monitor, monitor_dinner, data, CREATE);
 	set_threads_ready(data);*/
 	create_all_threads(data);
-	/*data->start_time = get_time(MILISECOND);*/
+	data->start_time = get_time(MILISECOND);
 	set_bool(&data->data_mutex, &data->threads_ready, true);
 	i = -1;
 	while (++i < data->nb_philo)

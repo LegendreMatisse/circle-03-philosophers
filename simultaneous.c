@@ -19,11 +19,16 @@ void	create_all_threads(t_data *data)
 	int	i;
 
 	i = -1;
-	while (++i < data->nb_philo)
-		handle_thread_code(&data->philos[i].nb_thread, dinner_sim,
-			&data->philos[i], CREATE);
+	if (data->nb_philo == 1)
+		handle_thread_code(&data->philos[0].nb_thread, lone_dinner,
+			&data->philos[0], CREATE);
+	else
+	{
+		while (++i < data->nb_philo)
+			handle_thread_code(&data->philos[i].nb_thread, dinner_sim,
+				&data->philos[i], CREATE);
+	}
 	handle_thread_code(&data->monitor, monitor_dinner, data, CREATE);
-	//data->start_time = get_time(MILISECOND);
 	set_threads_ready(data);
 }
 
@@ -51,7 +56,7 @@ void	desync_philo(t_philo *philo)
 	if (philo->data->nb_philo % 2 == 0)
 	{
 		if (philo->nb_philo % 2 == 0)
-			ft_usleep(30, philo->data);
+			ft_usleep(5, philo->data);
 	}
 	else
 	{

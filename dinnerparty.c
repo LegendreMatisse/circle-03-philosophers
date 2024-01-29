@@ -65,7 +65,9 @@ void	*dinner_sim(void *data)
 void	philo_eat(t_philo *philo)
 {
 	handle_mutex_code(&philo->f_fork->mutex, LOCK);
-	write_status(TFF, philo);
+	printf("time passed: %ld\n", get_time(MILISECOND) - philo->data->start_time);
+	write_status(TFF, philo);	
+	printf("time passed: %ld\n", get_time(MILISECOND) - philo->data->start_time);
 	handle_mutex_code(&philo->s_fork->mutex, LOCK);
 	write_status(TSF, philo);
 	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));

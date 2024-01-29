@@ -29,7 +29,7 @@ void	dinnerparty(t_data *data)
 				&data->philos[i], CREATE);
 	}
 	handle_thread_code(&data->monitor, monitor_dinner, data, CREATE);
-	void	set_threads_ready(data);
+	set_threads_ready(data);
 	data->start_time = get_time(MILISECOND);
 	set_bool(&data->data_mutex, &data->threads_ready, true);
 	i = -1;

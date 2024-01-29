@@ -16,8 +16,14 @@
 
 void	create_all_threads(t_data *data)
 {
+	/*while (get_bool(&data->data_mutex, &data->threads_ready) == false)
+		;*/
+	pthread_mutex_lock(&data->data_mutex);
 	while (get_bool(&data->data_mutex, &data->threads_ready) == false)
-		;
+	{
+		pthread_cond_wait(&data->cond_var, &data->data_mutex);
+	}
+	pthread_mutex_unlock(&data->data_mutex);
 }
 
 bool	running_thread(pthread_mutex_t *mutex, long *threads, long nb_philo)
@@ -51,4 +57,12 @@ void	desync_philo(t_philo *philo)
 		if (philo->nb_philo % 2 == 1)
 			philo_think(philo, true);
 	}
+}
+
+void	set_threads_ready(t_data *data)
+{
+	pthread_mutex_lock(&data->data_mutex);
+	data->threads_ready = true;
+	pthread_cond_broadcast(&data->cond_var);
+	pthread_mutex_unlock(&data->data_mutex);
 }

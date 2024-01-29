@@ -84,6 +84,7 @@ struct s_data
 	pthread_t		monitor;
 	t_fork			*forks;
 	t_philo			*philos;
+	pthread_cond_t	cond_var;
 };
 
 /*utils*/
@@ -140,3 +141,5 @@ void	*lone_dinner(void *data);
 void	*monitor_dinner(void *data);
 bool	philo_died(t_philo *philo);
 void	philo_dead(t_philo *philo);
+
+void	set_threads_ready(t_data *data);

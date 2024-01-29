@@ -23,8 +23,8 @@ void	create_all_threads(t_data *data)
 		handle_thread_code(&data->philos[i].nb_thread, dinner_sim,
 			&data->philos[i], CREATE);
 	handle_thread_code(&data->monitor, monitor_dinner, data, CREATE);
-	set_threads_ready(data);
 	data->start_time = get_time(MILISECOND);
+	set_threads_ready(data);
 }
 
 bool	running_thread(pthread_mutex_t *mutex, long *threads, long nb_philo)

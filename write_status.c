@@ -18,7 +18,6 @@ void	write_status(t_status status, t_philo *philo)
 
 	handle_mutex_code(&philo->data->data_mutex, LOCK);
 	passed = get_time(MILISECOND) - philo->data->start_time;
-	handle_mutex_code(&philo->data->data_mutex, UNLOCK);
 	if (philo->all_meals)
 		return ;
 	handle_mutex_code(&philo->data->write_mutex, LOCK);
@@ -33,4 +32,5 @@ void	write_status(t_status status, t_philo *philo)
 	else if (status == DIED)
 		printf("%-6ld %d died\n", passed, philo->nb_philo);
 	handle_mutex_code(&philo->data->write_mutex, UNLOCK);
+	handle_mutex_code(&philo->data->data_mutex, UNLOCK);
 }

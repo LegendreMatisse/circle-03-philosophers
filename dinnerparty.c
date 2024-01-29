@@ -29,7 +29,6 @@ void	dinnerparty(t_data *data)
 				&data->philos[i], CREATE);
 	}
 	handle_thread_code(&data->monitor, monitor_dinner, data, CREATE);
-	set_threads_ready(data);
 	data->start_time = get_time(MILISECOND);
 	set_bool(&data->data_mutex, &data->threads_ready, true);
 	i = -1;
@@ -47,6 +46,7 @@ void	*dinner_sim(void *data)
 	create_all_threads(philo->data);
 	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
+	set_threads_ready(data);
 	desync_philo(philo);
 	while (sim_done(philo->data) == false)
 	{

@@ -2,7 +2,7 @@ NAME		=	philo
 LIBRARY		=	philo.a
 
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -g
+CFLAGS		=	-Wall -Werror -Wextra -g -pthread
 AR			=	ar rcs
 RM			=	rm -rf
 
@@ -29,7 +29,7 @@ $(NAME):	$(LIBFT) $(OBJ_DIR) $(OBJS)
 			@echo "$(YELLOW)Creating $(LIBRARY) archive...$(RESET)"
 			@$(AR) $(LIBRARY) $(OBJS) >/dev/null 2>&1
 			@echo "$(YELLOW)Linking $(NAME) executable...$(RESET)"
-			@$(CC) -o $(NAME) $(LIBRARY)
+			@$(CC) $(CFLAGS) -o $(NAME) $(LIBRARY)
 			@echo "$(GREEN)$(NAME) is ready.$(RESET)"
 
 $(OBJ_DIR):

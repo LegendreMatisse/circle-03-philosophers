@@ -6,18 +6,21 @@
 /*   By: mlegendr <marvin@42.fr>                     +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:35:53 by mlegendr           #+#    #+#            */
-/*   Updated: 2024/01/27 23:49:50 by matisse          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:52:37 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <sys/time.h>
-#include <limits.h>
-#include <errno.h>
+#ifndef PHILOSOPHERS_H
+# define PHILOSOPHERS_H
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <pthread.h>
+# include <unistd.h>
+# include <stdbool.h>
+# include <sys/time.h>
+# include <limits.h>
+# include <errno.h>
 
 typedef enum e_mutex_code
 {
@@ -57,15 +60,15 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-	int				nb_philo; //id
-	long			nb_meals; //meals_counter
-	bool			all_meals; //full
-	long			last_meal; //last_meal_time
-	t_fork			*f_fork; //first_fork
-	t_fork			*s_fork; //second_fork
-	pthread_t		nb_thread; //thread_id
-	pthread_mutex_t	philo_mutex; //mutex
-	t_data			*data; //table
+	int				nb_philo;
+	long			nb_meals;
+	bool			all_meals;
+	long			last_meal;
+	t_fork			*f_fork;
+	t_fork			*s_fork;
+	pthread_t		nb_thread;
+	pthread_mutex_t	philo_mutex;
+	t_data			*data;
 }				t_philo;
 
 struct s_data
@@ -143,3 +146,5 @@ bool	philo_died(t_philo *philo);
 void	philo_dead(t_philo *philo);
 
 void	set_threads_ready(t_data *data);
+
+#endif

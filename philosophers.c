@@ -24,9 +24,7 @@ int	main(int argc, char **argv)
 		clean_data(&data);
 	}
 	else
-	{
 		exit_w_msg("Error: Wrong number of arguments.");
-	}
 	return (0);
 }
 

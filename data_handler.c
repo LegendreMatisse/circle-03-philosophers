@@ -15,6 +15,8 @@
 void	arg_validation(t_data *data, char **argv)
 {
 	data->nb_philo = ft_atol(argv[1]);
+	if (data->nb_philo > 200)
+		exit_w_msg("Error: Too many philo's. Max is 200.");
 	data->time_to_die = ft_atol(argv[2]) * 1000;
 	data->time_to_eat = ft_atol(argv[3]) * 1000;
 	data->time_to_sleep = ft_atol(argv[4]) * 1000;

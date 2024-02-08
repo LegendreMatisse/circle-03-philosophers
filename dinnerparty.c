@@ -6,7 +6,7 @@
 /*   By: matisse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:50:11 by matisse           #+#    #+#             */
-/*   Updated: 2024/01/27 19:58:48 by matisse          ###   ########.fr       */
+/*   Updated: 2024/02/08 16:23:19 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,8 @@ void	dinnerparty(t_data *data)
 	i = -1;
 	if (data->nb_meals == 0)
 		return ;
-	else if (data->nb_philo == 1)
-		handle_thread_code(&data->philos[0].nb_thread, lone_dinner,
-			&data->philos[0], CREATE);
-	else
-	{
-		while (++i < data->nb_philo)
-			handle_thread_code(&data->philos[i].nb_thread, dinner_sim,
-				&data->philos[i], CREATE);
-	}
-	handle_thread_code(&data->monitor, monitor_dinner, data, CREATE);
 	data->start_time = get_time(MILISECOND);
+	create_all_threads(data);
 	set_bool(&data->data_mutex, &data->threads_ready, true);
 	i = -1;
 	while (++i < data->nb_philo)
@@ -43,7 +34,6 @@ void	*dinner_sim(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-	create_all_threads(philo->data);
 	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
 	desync_philo(philo);
@@ -99,7 +89,6 @@ void	*lone_dinner(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-	create_all_threads(philo->data);
 	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
 	write_status(TFF, philo);

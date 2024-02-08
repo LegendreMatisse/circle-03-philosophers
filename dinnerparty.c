@@ -6,7 +6,7 @@
 /*   By: matisse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:50:11 by matisse           #+#    #+#             */
-/*   Updated: 2024/02/08 16:09:50 by mlegendr         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:23:19 by mlegendr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,10 @@ void	*lone_dinner(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-	create_all_threads(philo->data);
 	set_long(&philo->philo_mutex, &philo->last_meal, get_time(MILISECOND));
 	increase_long(&philo->data->data_mutex, &philo->data->nb_running_threads);
 	write_status(TFF, philo);
 	while (sim_done(philo->data) == false)
-	{
 		ft_usleep(200, philo->data);
-		philo_died(philo);
-	}
 	return (NULL);
 }
